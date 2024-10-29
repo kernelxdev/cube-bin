@@ -5,7 +5,11 @@ You can simply git clone it and install using install.sh
 
 `git clone https://github.com/kernelxdev/cube-bin.git`
 
-then
+After opening the directory you want to make so you can execute the install file so
+
+`chmod +x ./install.sh`
+
+And then
 
 `./install.sh`
 
