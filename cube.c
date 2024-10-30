@@ -2,6 +2,7 @@
 #include <math.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <time.h>
 
 #define WIDTH 80
 #define HEIGHT 22
@@ -88,13 +89,20 @@ void renderCube(float angleX, float angleY, float angleZ) {
 }
 
 int main() {
-    float angleX = 0.0, angleY = 0.0, angleZ = 0.0;
+    srand(time(0));
+    float angleX = rand() / (float)RAND_MAX * 2 * M_PI;
+    float angleY = rand() / (float)RAND_MAX * 2 * M_PI;
+    float angleZ = rand() / (float)RAND_MAX * 2 * M_PI;
+    float speedX = 0.03 + rand() / (float)RAND_MAX * 0.03;
+    float speedY = 0.03 + rand() / (float)RAND_MAX * 0.03;
+    float speedZ = 0.03 + rand() / (float)RAND_MAX * 0.03;
+
     while (1) {
         renderCube(angleX, angleY, angleZ);
-        angleX += 0.010;
-        angleY += 0.06;
-        angleZ += 0.08;
-        usleep(25000);
+        angleX += speedX;
+        angleY += speedY;
+        angleZ += speedZ;
+        usleep(35000);
     }
     return 0;
 }
